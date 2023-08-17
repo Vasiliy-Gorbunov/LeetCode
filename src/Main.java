@@ -1,16 +1,21 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
+        System.out.println(longestCommonPrefix(new String[]{"giant", "giacint", "gigachad", "giliatina"}));
 
     }
 
-    public int[] twoSum(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i+1; j < nums.length; j++) {
-                if (nums[i] + nums[j] == target) {
-                    return new int[] {i, j};
-                }
-            }
+    public static String longestCommonPrefix(String[] strs) {
+        Arrays.sort(strs);
+        String s1 = strs[0];
+        String s2 = strs[strs.length-1];
+        int idx = 0;
+        while(idx < s1.length()){
+            if(s1.charAt(idx) == s2.charAt(idx)){
+                idx++;
+            } else break;
         }
-        return null;
+        return s1.substring(0, idx);
     }
 }
